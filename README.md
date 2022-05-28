@@ -17,10 +17,10 @@ execute_migrator text <コマンド>
 ```
 サンプル
 ```
-execute_migrator text 'execute @e[name=\"test entity\"] ~~~ say Hello world!!'
+execute_migrator text 'execute @e[name=\"test entity\"] ~~~ detect ~~-1~ stone 0 say Hello world!!'
 
 // 結果
-// execute as @e[name="test entity"] at @s positioned ~ ~ ~ run say Hello world!!
+// execute as @e[name="test entity"] at @s positioned ~ ~ ~ if block ~ ~-1 ~ stone 0 run say Hello world!!
 ```
 
 ## mcfunction[WIP]
