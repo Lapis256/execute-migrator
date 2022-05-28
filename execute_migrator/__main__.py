@@ -3,8 +3,9 @@ from __future__ import annotations
 from argparse import ArgumentParser, Namespace, _SubParsersAction
 
 from mcfunction import parse_command
-
+from mcfunction.exceptions import ParserException
 from mcfunction.versions.mcbe_1_19.execute import ParsedExecuteCommand
+
 
 EXECUTE_TEMPLATE_BASE = "execute as {0.target} at @s positioned {0.position} "
 EXECUTE_TEMPLATE = EXECUTE_TEMPLATE_BASE + "run {run}"
@@ -13,8 +14,11 @@ EXECUTE_DETECT_TEMPLATE = (
 )
 
 
-def migrate_execute(command_text: str) -> str:
-    command: ParsedExecuteCommand = parse_command(command_text)
+def migrate_execute(command_text: str) -> str | None:
+    try:
+        command: ParsedExecuteCommand = parse_command(command_text)
+    except ParserException:
+        return
 
     run: str = command.run
     if run.startswith(("/execute", "execute")):
@@ -31,7 +35,12 @@ def default(parser: ArgumentParser, _):
 
 
 def migrate_text(parser: ArgumentParser, args: Namespace):
-    print(migrate_execute(args.command))
+    migrated = migrate_execute(args.command)
+    if migrated is None:
+        print("コマンドを解析できませんでした。")
+        return
+
+    print(migrated)
 
 
 def add_migrate_text(subparser: _SubParsersAction[ArgumentParser]):
