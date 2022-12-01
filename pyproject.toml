@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "execute-migrator"
+description = "My package description"
+version = "2.0.0"
+readme = "README.md"
+requires-python = ">=3.8"
+keywords = ["Minecraft"]
+license = {text = "MIT License"}
+classifiers = [
+    "Programming Language :: Python :: 3",
+]
+dependencies = [
+    "amulet-nbt",
+    "amulet-core",
+    "mcfunction-be.py@git+https://github.com/Lapis256/mcfunction-be.py.git",
+]
+
+[project.scripts]
+execute_migrator = "execute_migrator.__main__:main"
+
+[tool.setuptools]
+packages = ["execute_migrator"]
