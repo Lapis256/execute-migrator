@@ -1,7 +1,10 @@
 {
     "python.formatting.provider": "black",
+    "editor.formatOnSave": true,
     "cSpell.words": [
         "mcbe",
-        "mcfunction"
-    ]
+        "mcfunction",
+        "minecart"
+    ],
+    "python.analysis.typeCheckingMode": "basic"
 }
