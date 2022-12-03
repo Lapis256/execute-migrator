@@ -1,6 +1,8 @@
 # execute-migrator
 execute コマンドを新しい記法へと移行するツールです。
 
+このツールの使用は、バックアップを作成して自己責任で利用してください。
+
 # 導入
 ## 依存関係
 Python 3.8 以上
@@ -43,4 +45,18 @@ execute_migrator functions <directory path>
 指定しない場合は、上書きします。
 ```
 execute_migrator function -o <directory path> <directory path>
+```
+
+## world
+指定したワールド内の execute コマンドを新しい物に置き換えます。
+同時にコマンドブロックを更新します。
+```
+execute_migrator world <directory path>
+```
+
+## mcworld
+指定した .mcworld ファイル内の execute コマンドを新しい物に置き換えます。
+同時にコマンドブロックを更新します。
+```
+execute_migrator mcworld <file path>
 ```
