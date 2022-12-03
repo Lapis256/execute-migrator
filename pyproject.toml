@@ -14,6 +14,7 @@ classifiers = [
     "Programming Language :: Python :: 3",
 ]
 dependencies = [
+    "tqdm>=4.64.0,<4.65.0",
     "amulet-nbt>=2.0.0,<2.1.0",
     "amulet-core>=1.9.0,<1.10.0",
     "mcfunction-be.py@git+https://github.com/Lapis256/mcfunction-be.py.git",
