@@ -14,13 +14,10 @@ classifiers = [
     "Programming Language :: Python :: 3",
 ]
 dependencies = [
-    "amulet-nbt",
-    "amulet-core",
+    "amulet-nbt>=2.0.0,<2.1.0",
+    "amulet-core>=1.9.0,<1.10.0",
     "mcfunction-be.py@git+https://github.com/Lapis256/mcfunction-be.py.git",
 ]
 
 [project.scripts]
 execute_migrator = "execute_migrator.__main__:main"
-
-[tool.setuptools]
-packages = ["execute_migrator"]
