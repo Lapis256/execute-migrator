@@ -4,6 +4,8 @@
     "cSpell.words": [
         "mcbe",
         "mcfunction",
+        "mcfunctions",
+        "mcworld",
         "minecart"
     ],
     "python.analysis.typeCheckingMode": "basic"
