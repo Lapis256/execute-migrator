@@ -8,7 +8,6 @@ from amulet.level.formats.leveldb_world.format import LevelDBFormat
 from tqdm import tqdm
 
 from .str import migrate_execute
-from .mcfunction import migrate_mcfunctions
 from .zip_utils import unzip_all, zip_all
 
 
@@ -61,9 +60,6 @@ def migrate_level(path: Path):
         level._put_raw_chunk_data(chunk.cx, chunk.cz, data, dimension)
 
     level.close()
-
-    behavior_path = path.joinpath("behavior_packs")
-    migrate_mcfunctions(behavior_path, behavior_path)
 
     print(f"{level.level_name} の変換を完了しました")
 
